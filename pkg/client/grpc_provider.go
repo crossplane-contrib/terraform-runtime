@@ -11,12 +11,12 @@ import (
 const ProviderPluginType = "provider"
 
 // NewGRPCProvider creates a new GRPCClient instance.
-func NewGRPCProvider(providerName, pluginDir string) (*tfplugin.GRPCProvider, error) {
+func NewGRPCProvider(providerName, pluginPath string) (*tfplugin.GRPCProvider, error) {
 	// 1. find plugins in the filesystem
 	// name and version are just parsed out of the provider file name ({name}_v{version})
-	pluginMetaSet := discovery.FindPlugins(ProviderPluginType, []string{pluginDir}).WithName(providerName)
+	pluginMetaSet := discovery.FindPlugins(ProviderPluginType, []string{pluginPath}).WithName(providerName)
 	if pluginMetaSet.Count() < 1 {
-		return nil, fmt.Errorf("Failed to find plugin: %s. Plugin binary was not found in the plugin directory(%s)", providerName, pluginDir)
+		return nil, fmt.Errorf("Failed to find plugin: %s. Plugin binary was not found in the plugin directory(%s)", providerName, pluginPath)
 	}
 	// this is just comparing semvers to find the highest one
 	pluginMeta := pluginMetaSet.Newest()

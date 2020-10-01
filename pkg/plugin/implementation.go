@@ -67,7 +67,8 @@ func NewImplementationMerger() *ImplementationMerger {
 }
 
 // Implementation is a collection of callbacks required to implement a resource
-// There can be multiple Implementations for a resource, with
+// There can be multiple Implementations for a resource; ImplementationMerger is
+// used to overlay them in a predictable fashion.
 type Implementation struct {
 	// GVK is used to index other elements of the Entry by GVK
 	GVK k8schema.GroupVersionKind

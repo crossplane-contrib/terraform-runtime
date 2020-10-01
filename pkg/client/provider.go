@@ -87,8 +87,8 @@ func ReadProviderConfigFile(path string) (ProviderConfig, error) {
 // NewProvider constructs a Provider, which is a container type, holding a
 // terraform provider plugin grpc client, as well as metadata about this provider
 // instance, eg its configuration and type.
-func NewProvider(providerName string, pluginDir string, cfg map[string]cty.Value) (*Provider, error) {
-	grpc, err := NewGRPCProvider(providerName, pluginDir)
+func NewProvider(providerName string, pluginPath string) (*Provider, error) {
+	grpc, err := NewGRPCProvider(providerName, pluginPath)
 	if err != nil {
 		return nil, err
 	}
@@ -96,7 +96,6 @@ func NewProvider(providerName string, pluginDir string, cfg map[string]cty.Value
 		Name:         providerName,
 		GRPCProvider: grpc,
 	}
-	err = provider.Configure(cfg)
 
 	return provider, err
 }
@@ -114,18 +113,12 @@ type Initializer func(context.Context, resource.Managed, *RuntimeOptions, kubecl
 var DefaultProviderPoolSize = 5
 
 type RuntimeOptions struct {
-	PoolSize        int
-	PluginDirectory string
+	PoolSize   int
+	PluginPath string
 }
 
-var DefaultPluginDirectory string = "/Users/kasey/src/crossplane/provider-terraform-gcp/.terraform/plugins/darwin_amd64/"
-
-func (ro *RuntimeOptions) GetPluginDirectory() string {
-	return DefaultPluginDirectory
-}
-
-func (ro *RuntimeOptions) WithPluginDirectory(dir string) *RuntimeOptions {
-	ro.PluginDirectory = dir
+func (ro *RuntimeOptions) WithPluginPath(path string) *RuntimeOptions {
+	ro.PluginPath = path
 	return ro
 }
 
