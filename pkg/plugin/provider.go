@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"github.com/crossplane/terraform-provider-runtime/pkg/client"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/client"
 	k8schema "k8s.io/apimachinery/pkg/runtime/schema"
 	"sigs.k8s.io/controller-runtime/pkg/scheme"
 )

@@ -2,7 +2,7 @@ package plugin
 
 import (
 	"github.com/crossplane/crossplane-runtime/pkg/logging"
-	"github.com/crossplane/terraform-provider-runtime/pkg/client"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/client"
 	ctrl "sigs.k8s.io/controller-runtime"
 )
 

@@ -22,8 +22,8 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 
 	crossplaneapis "github.com/crossplane/crossplane/apis"
-	"github.com/crossplane/terraform-provider-runtime/pkg/client"
-	"github.com/crossplane/terraform-provider-runtime/pkg/plugin"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/client"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/plugin"
 )
 
 //func StartTerraformManager(r *registry.Registry, opts ctrl.Options, ropts *client.RuntimeOptions, log logging.Logger) error {

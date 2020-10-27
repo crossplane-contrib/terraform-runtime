@@ -3,8 +3,8 @@ package api
 import (
 	"fmt"
 
-	"github.com/crossplane/terraform-provider-runtime/pkg/client"
-	"github.com/crossplane/terraform-provider-runtime/pkg/plugin"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/client"
+	"github.com/crossplane-contrib/terraform-runtime/pkg/plugin"
 	"github.com/hashicorp/terraform/providers"
 	"github.com/pkg/errors"
 )
