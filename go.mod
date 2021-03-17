@@ -3,8 +3,8 @@ module github.com/crossplane-contrib/terraform-runtime
 go 1.14
 
 require (
-	github.com/crossplane/crossplane v0.13.0
-	github.com/crossplane/crossplane-runtime v0.10.0
+	github.com/crossplane/crossplane v1.0.0
+	github.com/crossplane/crossplane-runtime v0.12.0
 	github.com/hashicorp/go-plugin v1.3.0
 	github.com/hashicorp/terraform v0.13.5
 	github.com/pkg/errors v0.9.1
